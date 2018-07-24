@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+</head>
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+{#<script src="../static/js/person_info.js"></script>#}
+<link type="text/css" rel="stylesheet" href="../static/css/first_page.css"/>
+<link type="text/css" rel="stylesheet" href="../static/css/personinfo_thingstodo.css"/>
+<style>
+table {
+    text-align: center;
+    width: 600px;
+    height: 110px;
+    background-color: lightgray;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+
+<body>
+    <!--page head-->
+    <div id="page_head">
+        <div id="head_line">
+            <strong>个人待办事项管理系统</strong>
+            <div id="hello">欢迎您, <nobr />
+                <!--user_name-->
+                <span id="user_name">{{ user_name }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--page medium button-->
+    <div id="page_medium_modify">
+        <div id="info_modify" >
+            <p>个人信息修改</p>
+            <hr/>
+            <form id="modify" action="http://localhost:8888/update_user" method="POST">
+                <input name="USER_ID" id="USER_ID" class="modify_user" type="text" placeholder="请确认您的ID">
+                <input name="AGE" id="AGE" class="modify_user" type="number" placeholder="年龄"> <br />
+                <input name="PHONE_NUMBER" id="PHONE_NUMBER" class="modify_user" type="text" placeholder="电话号码">
+                <input name="USER_NAME" id="USER_NAME" class="modify_user" type="text" placeholder="用户名"> <br />
+                <input name="PASSWORD1" id="PASSWORD1" class="modify_user" type="password" placeholder="密码">
+                <input name="PASSWORD2" id="PASSWORD2" class="modify_user" type="password" placeholder="密码确认"><br />
+                <input name="COMMENTS" id="COMMENTS" class="modify_user" type="text" placeholder="备注">
+                <input name="SEX" id="SEX1" class="modify_user" type="radio" value="M">Male
+                <input name="SEX" id="SEX2" class="modify_user" type="radio" value="F">Female<br />
+                <input id="confirm_modify" class="modify_user" type="submit" value="确认修改">
+            </form>
+        </div>
+    </div>
+
+    <!--page foot-->
+    <div id="page_foot">
+        <hr/>
+        <div id=page_foot_content">
+            <span>如有问题，请联系系统管理员: </span><span id="administrator">huhao</span>
+            <p>&copy; xxxxx</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+</head>
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+<script src="../static/js/person_info.js"></script>
+<link type="text/css" rel="stylesheet" href="../static/css/first_page.css"/>
+<link type="text/css" rel="stylesheet" href="../static/css/personinfo_thingstodo.css"/>
+<style>
+table {
+    text-align: center;
+    width: 600px;
+    height: 110px;
+    background-color: lightgray;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+
+<body>
+
+    <!--page head-->
+    <div id="page_head">
+        <div id="head_line">
+            <strong>个人待办事项管理系统</strong>
+            <div id="hello">欢迎您, <nobr />
+                <!--user_name-->
+                <span id="user_name">{{ user_name }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--page medium button-->
+    <div id="page_medium">
+        <div id="btn_items">
+            <button onclick="getTodoList('http://localhost:8888/')" name= "btn_todo" id="btn_todo" style="border-radius: 5px" type="submit">待办事项列表</button>
+            <form method="POST" action="http://localhost:8888/update_person_info">
+                <input id="btn_person" style="border-radius: 5px" value="个人信息维护" type="submit">
+            </form>
+            <div id="person_info">
+
+                <div id="base_info">
+                    <p><strong>基本信息</strong></p>
+                    <hr />
+                    <div id="user_table">
+                        <table>
+                        <tr>
+                            <td>用户名</td>
+                            <td>{{ base_info.0 }}</td>
+                            <td>密码</td>
+                            <td>{{ base_info.1 }}</td>
+                        </tr>
+                        <tr>
+                            <td>性别</td>
+                            <td>{{ base_info.2 }}</td>
+                            <td>年龄</td>
+                            <td>{{ base_info.3 }}</td>
+                        </tr>
+                        <tr>
+                            <td>电话号码</td>
+                            <td >{{ base_info.4 }}</td>
+                             <td >用户ID</td>
+                            <td id="current_id" >{{ base_info.5 }}</td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+
+                <div id="other_info">
+                    <p><strong>其他信息</strong></p>
+                    <hr />
+                    <div id="other_table">
+                        <table>
+                            <tr>
+                                <td>创建时间</td>
+                                <td>{{ other_info.0 }}</td>
+                            </tr>
+                            <tr>
+                                <td>修改时间</td>
+                                <td>{{ other_info.1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>备注</td>
+                                <td>{{ other_info.2 }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--page foot-->
+    <div id="page_foot">
+        <hr/>
+        <div id=page_foot_content">
+            <span>如有问题，请联系系统管理员: </span><span id="administrator">huhao</span>
+            <p>&copy; xxxxx</p>
+        </div>
+    </div>
+
+<script>
+    function getTodoList() {
+        var current_id = document.getElementById("current_id").textContent;
+        {#alert(current_id);#}
+        window.location.assign("todo_list?id=" + current_id);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+/*welcome user style*/
+#hello {
+    float: right;
+    font-size: 15px;
+    position: absolute;
+    right: 80px;
+}
+
+/*page medium content style*/
+#page_medium {
+    padding-top: 0px;
+}
+
+/*button style*/
+#btn_person, #btn_todo {
+    border-radius: 5px;
+    float: right;
+    margin-right: 30px;
+    width: 100px;
+}
+
+#person_info {
+        padding-left: 400px;
+        width: 600px;
+        height: 400px;
+}
+
+#base_info, #other_info {
+    padding-top: 0px;
+}
+
+#things_list {
+    padding-left: 200px;
+    width: 800px;
+    height: 400px;
+}
+
+#todo {
+        padding-top: 40px;
+}
+
+#info_modify {
+    width: 300px;
+    height: 500px;
+    padding-top: 20px;
+    padding-left: 500px;
+}
+
+.modify_user {
+    margin-top: 30px;
+    border-radius: 5px;
+    height: 25px;
+
+}
+

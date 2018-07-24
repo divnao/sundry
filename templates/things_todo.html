@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项</title>
+</head>
+<link type="text/css" rel="stylesheet" href="../static/css/first_page.css"/>
+<link type="text/css" rel="stylesheet" href="../static/css/personinfo_thingstodo.css"/>
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+<script src="../static/js/person_info.js"></script>
+<style>
+    #things_list {
+        padding-left: 300px;
+    }
+
+    table {
+    text-align: center;
+    width: 800px;
+    height: 110px;
+    background-color: lightgray;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+    td{
+        width: 40px;
+        height: 30px;
+    }
+</style>
+
+<body>
+    <!--page head-->
+    <div id="page_head">
+        <div id="head_line">
+            <strong>个人待办事项管理系统</strong>
+            <div id="hello">欢迎您, <nobr />
+                <!--user_name-->
+                <span id="user_name"> {{ user_name }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--page medium button-->
+    <div id="page_medium">
+        <div id="btn_items">
+            <button id="btn_person" style="border-radius: 5px">个人信息维护</button>
+            <button id="btn_todo" style="border-radius: 5px">待办事项列表</button>
+        </div>
+        <div id="things_list">
+                <div id="todo">
+                    <p><strong>待办事项</strong></p>
+                    <hr />
+                    <table id="todo_list">
+                    <tr >
+                        <td>待办事项ID</td>
+                        <td>用户ID</td>
+                        <td>待办事项标题</td>
+                        <td>待办事项内容</td>
+                        <td>优先级</td>
+                        <td>创建时间</td>
+                        <td>更新时间</td>
+                        <td>注释</td>
+                        <td colspan="2">操作</td>
+                    </tr>
+                    {% for THING in THING_LIST %}
+                        <tr class="todo_row">
+                        {% for thing in THING %}
+                            <td class="todo_column">{{ thing }}</td>
+                        {% endfor %}
+                            <td><button id="del_todo" style="border-radius: 5px">删除</button></td>
+                            <td><button id="modify_todo" style="border-radius: 5px">修改</button></td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="10">
+                            <button onclick="getTodoList('http://localhost:8888/')" name= "todo_user_id" id="todo_user_id" style="border-radius: 5px" type="submit">新增</button>
+                        </td>
+                    </tr>
+
+                    </table>
+                </div>
+            </div>
+    </div>
+
+    <!--page foot-->
+    <div id="page_foot">
+        <hr/>
+        <div id=page_foot_content">
+            <span>如有问题，请联系系统管理员: </span><span id="administrator">huhao</span>
+            <p>&copy; xxxxx</p>
+        </div>
+    </div>
+    <script>
+        function getTodoList() {
+            var u = $("#todo_list:first-child").getElementsByClassName("todo_column").textContent;
+            alert(u);
+        {#window.location.assign("add?todo_column_id=" + current_id + "&user_id=");#}
+    }
+    </script>
+
+</body>
+</html>
